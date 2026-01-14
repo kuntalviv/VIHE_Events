@@ -1,0 +1,5 @@
+const item = {
+    template: `
+        <input />
+    `
+};
