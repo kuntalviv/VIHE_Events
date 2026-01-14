@@ -1,6 +1,6 @@
 const { createApp } = Vue;
 
 const app = createApp({});
-app.component("items", item);
+app.component("Item", Item);
 
 app.mount("#app");
