@@ -1,4 +1,4 @@
-const item = {
+const Item = {
     template: `
         <input />
     `
