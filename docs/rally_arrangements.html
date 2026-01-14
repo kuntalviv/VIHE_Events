@@ -11,9 +11,22 @@
 
 <body>
     <div id="app">
-        <strong name="table_heading">Item Name</strong> <strong name="table_heading">Item Count</strong> 
+        <strong name="table_heading">Item</strong> <strong name="table_heading">Item Count</strong>
+        <input type="text"/>
     </div>
 </body>
+
+<script>
+    const { createApp, ref } = Vue;
+    createApp({
+        setup() {
+            const message = ref("Hello");
+            return {
+                message
+            };
+        }
+    }).mount("#app");
+</script>
 
 <style>
     strong[name="table_heading"] {
