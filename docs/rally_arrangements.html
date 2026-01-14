@@ -11,19 +11,16 @@
 
 <body>
     <div id="app">
-        <strong name="table_heading">Item</strong> <strong name="table_heading">Item Count</strong>
-        <input type="text"/>
+        <Item/>
     </div>
 </body>
 
 <script>
     const { createApp, ref } = Vue;
+    import item from "./Item.vue";
     createApp({
         setup() {
-            const message = ref("Hello");
-            return {
-                message
-            };
+            return {item};
         }
     }).mount("#app");
 </script>
