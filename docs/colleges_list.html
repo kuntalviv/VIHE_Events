@@ -10,6 +10,7 @@
       <a href="#" onclick="showContent('king_koti'); return false;">King Koti Colleges</a>
       <a href="#" onclick="showContent('vidya_nagar'); return false;">Vidya Nagar Colleges</a>
       <a href="#" onclick="showContent('ram_nagar'); return false;">Ram Nagar Colleges</a>
+      <a href="#" onclick="showContent('secundarabad'); return false;">Secundarabad Colleges</a>
       <p id="current_location_heading">
           Currently Showing: Himayat Nagar Colleges
       </p>
@@ -17,6 +18,7 @@
       <iframe id="king_koti" src="https://www.google.com/maps/d/u/1/embed?mid=1dq4wS1Sozp5FYinZCDU9WIpihXxWVyg&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
       <iframe id="vidya_nagar" src="https://www.google.com/maps/d/embed?mid=1GXbCwjyCLuyeRRSmIhhVeBvzeUysFOs&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
       <iframe id="ram_nagar" src="https://www.google.com/maps/d/embed?mid=1q6upob47mmZjLkGCoXDvng4FLB_ON_E&ehbc=2E312F" width="640" height="480"></iframe>
+    <iframe id="secundarabad" src="https://www.google.com/maps/d/embed?mid=1B_l-Wr-y9lHiiVfmQuN-EC-4xv1f-pc&ehbc=2E312F" width="640" height="480"></iframe>
 </body>
 <script>
     const contentIdToNameMap = {
@@ -24,6 +26,7 @@
         "king_koti": "King Koti",
         "vidya_nagar": "Vidya Nagar",
         "ram_nagar":"Ram Nagar",
+        "secundarabad": "Secundarabad",
     }
   function showContent(contentId) {
       document.getElementById("current_location_heading").innerText = "Currently Showing: " + contentIdToNameMap[contentId] + " Colleges";
