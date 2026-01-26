@@ -11,6 +11,8 @@
       <a href="#" onclick="showContent('vidya_nagar'); return false;">Vidya Nagar Colleges</a>
       <a href="#" onclick="showContent('ram_nagar'); return false;">Ram Nagar Colleges</a>
       <a href="#" onclick="showContent('secundarabad'); return false;">Secundarabad Colleges</a>
+      <a href="#" onclick="showContent('rtc_x_roads'); return false;">RTC X Road Colleges</a>
+      <a href="#" onclick="showContent('narayanguda'); return false;">Narayanguda Colleges</a>
       <p id="current_location_heading">
           Currently Showing: Himayat Nagar Colleges
       </p>
@@ -19,6 +21,8 @@
       <iframe id="vidya_nagar" src="https://www.google.com/maps/d/embed?mid=1GXbCwjyCLuyeRRSmIhhVeBvzeUysFOs&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
       <iframe id="ram_nagar" src="https://www.google.com/maps/d/embed?mid=1q6upob47mmZjLkGCoXDvng4FLB_ON_E&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
     <iframe id="secundarabad" src="https://www.google.com/maps/d/embed?mid=1B_l-Wr-y9lHiiVfmQuN-EC-4xv1f-pc&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
+    <iframe id="rtc_x_roads" src="https://www.google.com/maps/d/embed?mid=11rypP6E4IQjkncJtT9n7KYNTM21rYO0&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
+    <iframe id="narayanguda" src="https://www.google.com/maps/d/embed?mid=1Jr07eG2u7JKOXjQOHeRSQoRphVLfSI0&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
 </body>
 <script>
     const contentIdToNameMap = {
@@ -27,6 +31,8 @@
         "vidya_nagar": "Vidya Nagar",
         "ram_nagar":"Ram Nagar",
         "secundarabad": "Secundarabad",
+        "rtc_x_roads": "RTC X Road Colleges",
+        "narayanguda": "Narayanguda",
     }
   function showContent(contentId) {
       document.getElementById("current_location_heading").innerText = "Currently Showing: " + contentIdToNameMap[contentId] + " Colleges";
