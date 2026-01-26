@@ -13,6 +13,7 @@
       <a href="#" onclick="showContent('secundarabad'); return false;">Secundarabad Colleges</a>
       <a href="#" onclick="showContent('rtc_x_roads'); return false;">RTC X Road Colleges</a>
       <a href="#" onclick="showContent('narayanguda'); return false;">Narayanguda Colleges</a>
+      <a href="#" onclick="showContent('domalguda'); return false;">Domalguda Colleges</a>
       <p id="current_location_heading">
           Currently Showing: Himayat Nagar Colleges
       </p>
@@ -23,6 +24,7 @@
     <iframe id="secundarabad" src="https://www.google.com/maps/d/embed?mid=1B_l-Wr-y9lHiiVfmQuN-EC-4xv1f-pc&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
     <iframe id="rtc_x_roads" src="https://www.google.com/maps/d/embed?mid=11rypP6E4IQjkncJtT9n7KYNTM21rYO0&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
     <iframe id="narayanguda" src="https://www.google.com/maps/d/embed?mid=1Jr07eG2u7JKOXjQOHeRSQoRphVLfSI0&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
+    <iframe id="domalguda" src="https://www.google.com/maps/d/embed?mid=1hR_N5DAh2C74XWR8TRa6CeRMrhvGtKI&ehbc=2E312F" width="640" height="480" style="display:none;"></iframe>
 </body>
 <script>
     const contentIdToNameMap = {
@@ -33,6 +35,7 @@
         "secundarabad": "Secundarabad",
         "rtc_x_roads": "RTC X Road Colleges",
         "narayanguda": "Narayanguda",
+        "domalguda": "Domalguda",
     }
   function showContent(contentId) {
       document.getElementById("current_location_heading").innerText = "Currently Showing: " + contentIdToNameMap[contentId] + " Colleges";
