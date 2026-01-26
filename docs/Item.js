@@ -1,5 +1,0 @@
-const Item = {
-    template: `
-        <input />
-    `
-};
