@@ -8,21 +8,140 @@
 </head>
 
 <body>
+    <a href="#" onclick="addTemplate('rally'); return false;">Rally Items</a>
     <section id="main">
     <h1 id="item_name">Item Name</h1>
     <h1 id="item_count">Item Count</h1>
     <h1 id="taken">Taken</h1>
     <h1 id="returned">Returned</h1>
+    <h1 id="actions">Actions</h1>
+    <input type="text" />
+    <input type="text" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <section class="actions">
+        <button type="button" onclick="addRow(this)">Add</input>
+        <button type="button" onclick="deleteRow(this)">Delete</input>
     </section>
+    </section>
+
 </body>
 
 <style>
     section#main {
-        display:flex;
+        display:grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2vw;
+    }
+    section.actions {
+        display: flex;
+        justify-content: space-evenly;
     }
     h1 {
         margin-inline:5vw;
     }
+
+    button {
+        grid-column: 5;
+    }
 </style>
+
+<script>
+    let loaded_template = "";
+    const templates = {
+        rally : [
+            {
+                item_name: "Big National Flags",
+                item_count: 2
+            },
+            {
+                item_name: "Small National Flags",
+                item_count: 6 
+            },
+        ]
+    }
+
+    const addTemplate = (template_type) => {
+        
+        const items_list = templates[template_type];
+        const actions_elements = document.getElementsByClassName("actions");
+        if(actions_elements.length > items_list.length)
+        for(const i = 0; i < items_list.length - 1; i++) {
+            document.querySelector('section>button').click();
+        }
+
+        loaded_template = template_type;
+    }
+
+    const addRow = (clicked_btn, item) => {
+
+        let old_element = clicked_btn.parentElement;
+        let new_element = document.createElement("input");
+        new_element.type = "text";
+        old_element.after(new_element);
+        
+        old_element = new_element;
+        new_element = document.createElement("input");
+        new_element.type = "text";
+        old_element.after(new_element);
+
+        old_element = new_element;
+        new_element = document.createElement("input");
+        new_element.type = "checkbox";
+        old_element.after(new_element);
+
+        old_element = new_element;
+        new_element = document.createElement("input");
+        new_element.type = "checkbox";
+        old_element.after(new_element);
+
+
+        old_element = new_element;
+        new_element = document.createElement("section");
+        new_element.classList.add("actions");
+        old_element.after(new_element);
+
+        old_element = new_element;
+        new_element = document.createElement("button");
+        new_element.type = "button";
+        new_element.addEventListener("click", (ptr_event) => {addRow(ptr_event.target)});
+        new_element.innerText = "Add";
+        old_element.appendChild(new_element);
+
+        new_element = document.createElement("button");
+        new_element.type = "button";
+        new_element.addEventListener("click", (ptr_event) => {deleteRow(ptr_event.target)});
+        new_element.innerText = "Delete";
+        old_element.appendChild(new_element);
+
+   }
+
+   const deleteRow = (clicked_btn) => {
+        const actions_element = document.getElementsByClassName("actions");
+        if(!actions_element) { return; }
+        if(actions_element.length === 1) { 
+            const inputs = document.getElementsByTagName("input");
+            Array.from(document.getElementsByTagName("input")).forEach(element => {
+                if(element.type === "text") {
+                    element.value = "";
+                } else if(element.type === "checkbox") {
+                    element.checked = false;
+                }
+            });
+            return; 
+        }
+        
+        let old_element = clicked_btn.parentElement;
+        let new_element = old_element.previousElementSibling;
+        old_element.remove();
+
+        let count = 4;
+        while(count--) {
+            old_element = new_element;
+            new_element = old_element.previousElementSibling;
+            old_element.remove();
+        }
+   }
+</script>
 
 </html>
