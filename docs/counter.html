@@ -73,7 +73,9 @@
 
 <script>
     if(window.matchMedia("(orientation: portrait)").matches) {
-
+        document.getElementById("portrait_warning").display = "block";
+    } else {
+        document.getElementById("portrait_warning").display = "none";
     }
 
     let loaded_template = "";
