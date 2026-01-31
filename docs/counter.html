@@ -16,7 +16,6 @@
     <h3 id="taken">Taken</h3>
     <h3 id="returned">Returned</h3>
     <h3 id="actions">Actions</h3>
-    <br/>
     <input type="text" />
     <input type="text" />
     <input type="checkbox" />
@@ -26,7 +25,6 @@
         <button type="button" onclick="deleteRow(this)">Delete</input>
     </section>
     </section>
-    <br>
 
 </body>
 
@@ -246,7 +244,6 @@
         new_element.innerText = "Delete";
         old_element.appendChild(new_element);
 
-        old_element.after(document.createElement("br"));
    }
 
    const deleteRow = (clicked_btn) => {
