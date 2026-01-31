@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <p id="portrait_warning"><span id="portrait_warning_icon"> &#128712; </span><i>For better experience, please use landscape mode.</i></p>
     <a href="#" onclick="addTemplate('auditorium'); return false;">Auditorium Items</a>
     <a href="#" onclick="addTemplate('rally'); return false;">Rally Items</a>
     <section id="main">
@@ -35,6 +36,10 @@
         }
     }
 
+    span#portrait_warning_icon {
+        font-size: large;
+    }
+
     section#main {
         display:grid;
         grid-template-columns: repeat(5, 1fr);
@@ -60,6 +65,10 @@
 </style>
 
 <script>
+    if(window.matchMedia("(orientation: portrait)").matches) {
+
+    }
+
     let loaded_template = "";
     const templates = {
         rally : [
@@ -240,6 +249,8 @@
         new_element.addEventListener("click", (ptr_event) => {deleteRow(ptr_event.target)});
         new_element.innerText = "Delete";
         old_element.appendChild(new_element);
+
+
    }
 
    const deleteRow = (clicked_btn) => {
