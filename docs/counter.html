@@ -153,6 +153,10 @@
     const addTemplate = (template_type) => {
         
         if (!Object.hasOwn(templates, template_type)) return;
+        const all_checkboxes = document.querySelectorAll("input[type='checkbox']");
+        for(let i = 0; i < all_checkboxes.length; i++) {
+            all_checkboxes[i].checked = false;
+        }
 
         const items_list = templates[template_type];
         const text_inputs = document.querySelectorAll("input[type='text']");
