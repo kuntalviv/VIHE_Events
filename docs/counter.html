@@ -9,9 +9,10 @@
 
 <body>
     <p id="portrait_warning" class="portrait-text"><span id="portrait_warning_icon"> &#128712; </span><i>For better experience, please use landscape mode.</i></p>
-    <br>
-    <a href="#" onclick="addTemplate('auditorium'); return false;">Auditorium Items</a>
-    <a href="#" onclick="addTemplate('rally'); return false;">Rally Items</a>
+    <section id="template_links">
+        <a href="#" onclick="addTemplate('auditorium'); return false;">Auditorium Items</a>
+        <a href="#" onclick="addTemplate('rally'); return false;">Rally Items</a>
+    </section>
     <section id="main">
         <h3 id="item_name">Item Name</h3>
         <h3 id="item_count">Item Count</h3>
@@ -44,15 +45,18 @@
     }
 
     @media screen and (orientation: portrait) {
-        .portrait-text { display: inline; }
+        .portrait-text { display: block; }
     }
     @media screen and (orientation: landscape) {
         .portrait-text { display: none; }
     }
 
-    .portrait-text {
-        margin-block: 5em;
+    .template_links {
+        display: flex;
+        margin: 5em;
     }
+
+
 
     span#portrait_warning_icon {
         font-size: large;
