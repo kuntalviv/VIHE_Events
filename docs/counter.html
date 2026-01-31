@@ -58,16 +58,65 @@
                 item_name: "Small National Flags",
                 item_count: 6 
             },
+            {
+                item_name: "Quotation Banners",
+                item_count: 14
+            }
         ]
     }
 
     const addTemplate = (template_type) => {
         
         const items_list = templates[template_type];
-        const actions_elements = document.getElementsByClassName("actions");
-        if(actions_elements.length > items_list.length)
-        for(const i = 0; i < items_list.length - 1; i++) {
-            document.querySelector('section>button').click();
+        const text_inputs = document.querySelectorAll("input[type='text']");
+
+        let i = 0;
+        let j = 0;
+        items_list_length = items_list.length;
+        text_inputs_length = text_inputs.length;
+        while(true) {
+            
+            if(i >= items_list_length && j < text_inputs_length) {
+                const main_section = document.querySelector("section#main");
+                const actions_section = main_section.querySelector("section:last-of-type");
+                if(actions_section) {
+                    const delete_btn = actions_section.children[1];
+                    delete_btn.click();
+                    text_inputs_length -= 2;
+                }
+
+                continue;
+            }
+
+            else if (i < items_list_length && j >= text_inputs_length) {
+                const main_section = document.querySelector("section#main");
+                const actions_section = main_section.querySelector("section:last-of-type");
+                if(actions_section) {
+                    const add_btn = actions_section.children[0];
+                    add_btn.click();
+                    text_inputs_length += 2;
+                }
+                
+                let new_input = main_section.querySelector("input:last-of-type").previousElementSibling.previousElementSibling;
+                new_input.value = items_list[i].item_count || 0;
+                new_input = new_input.previousElementSibling;
+                new_input.value = items_list[i].item_name || "<empty>";
+                
+                i += 1;
+                j += 2;
+
+                continue;
+                
+            }
+
+            else if (i >= items_list_length && j >= text_inputs_length) {
+                break;
+            }
+
+            text_inputs[j].value = items_list[i].item_name || "<empty>" ;
+            text_inputs[j+1].value = items_list[i].item_count || 0 ;
+            i += 1;
+            j += 2;
         }
 
         loaded_template = template_type;
