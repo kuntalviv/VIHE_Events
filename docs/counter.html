@@ -8,13 +8,15 @@
 </head>
 
 <body>
+    <a href="#" onclick="addTemplate('auditorium'); return false;">Auditorium Items</a>
     <a href="#" onclick="addTemplate('rally'); return false;">Rally Items</a>
     <section id="main">
-    <h1 id="item_name">Item Name</h1>
-    <h1 id="item_count">Item Count</h1>
-    <h1 id="taken">Taken</h1>
-    <h1 id="returned">Returned</h1>
-    <h1 id="actions">Actions</h1>
+    <h3 id="item_name">Item Name</h3>
+    <h3 id="item_count">Item Count</h3>
+    <h3 id="taken">Taken</h3>
+    <h3 id="returned">Returned</h3>
+    <h3 id="actions">Actions</h3>
+    <br/>
     <input type="text" />
     <input type="text" />
     <input type="checkbox" />
@@ -24,25 +26,48 @@
         <button type="button" onclick="deleteRow(this)">Delete</input>
     </section>
     </section>
+    <br/>
 
 </body>
 
 <style>
-    section#main {
-        display:grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 2vw;
+    @media screen and (max-width: 600px) {
+
+        section#main {
+            display:grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2vw;
+        }
+        section.actions {
+            display: flex;
+            justify-content: space-evenly;
+        }
     }
-    section.actions {
-        display: flex;
-        justify-content: space-evenly;
+
+    @media screen and (min-width: 600px) {
+        section#main {
+            display:grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2vw;
+        }
+        section.actions {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
     }
-    h1 {
+    
+    h3 {
         margin-inline:5vw;
+        text-align: center;
     }
 
     button {
         grid-column: 5;
+    }
+
+    a {
+        padding: 10px;
     }
 </style>
 
@@ -62,11 +87,76 @@
                 item_name: "Quotation Banners",
                 item_count: 14
             }
+        ],
+
+        auditorium : [
+            {
+                item_name: "Holy Trio Photo with Stands",
+                item_count: 3
+            },
+            {
+                item_name: "Deep Prajwalan Lamp",
+                item_count: 1
+            },
+            {
+                item_name: "Deep Prajwalan Wicks",
+                item_count: 5
+            },
+            {
+                item_name: "Deep Prajwalan Karpooram",
+                item_count: "1 packet"
+            },
+            {
+                item_name: "Deep Prajwalan Oil",
+                item_count: "1 bottle"
+            },
+            {
+                item_name: "Deep Prajwalan Agarbatti",
+                item_count: "4"
+            },
+            {
+                item_name: "Deep Prajwalan Loose Petals",
+                item_count: "1 basket"
+            },
+            {
+                item_name: "Deep Prajwalan Matchbox",
+                item_count: "1"
+            },
+            {
+                item_name: "Holy Trio Garlands",
+                item_count: "3"
+            },
+            {
+                item_name: "Guest Nameplates",
+                item_count: "as per requirement"
+            },
+            {
+                item_name: "Water Bottles",
+                item_count: "as per requirement"
+            },
+            {
+                item_name: "Event Schedule Copies",
+                item_count: "as per requirement"
+            },
+            {
+                item_name: "Momentos/Books/Cloth",
+                item_count: "as per requirement"
+            },
+            {
+                item_name: "Chairs with cloth",
+                item_count: "as per requirement"
+            },
+            {
+                item_name: "T Pie",
+                item_count: "as per requirement"
+            },
         ]
     }
 
     const addTemplate = (template_type) => {
         
+        if (!Object.hasOwn(templates, template_type)) return;
+
         const items_list = templates[template_type];
         const text_inputs = document.querySelectorAll("input[type='text']");
 
@@ -163,6 +253,7 @@
         new_element.innerText = "Delete";
         old_element.appendChild(new_element);
 
+        old_element.after(document.createElement("<br/>"));
    }
 
    const deleteRow = (clicked_btn) => {
