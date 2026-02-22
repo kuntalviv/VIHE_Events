@@ -1,0 +1,205 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f3ef;
+    background-image:
+        radial-gradient(circle, rgba(156,123,59,0.07) 2px, transparent 2px),
+        radial-gradient(circle, rgba(156,123,59,0.05) 2px, transparent 2px);
+    background-size: 80px 80px;
+    background-position: 0 0, 40px 40px;
+    color: #2f2f2f;
+    margin: 0;
+}
+
+    @media screen and (max-width: 600px) {
+        body {
+            writing-mode: sideways-lr;
+        }
+
+        input[type="checkbox"] {
+            transform: rotate(-90deg);
+            height: 1em;
+            
+        }
+    }
+
+    @media screen and (orientation: portrait) {
+        .portrait-text { display: block; }
+    }
+    @media screen and (orientation: landscape) {
+        .portrait-text { display: none; }
+    }
+    #template_links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+#template_links a {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: white;
+    color: #9c7b3b;
+    font-weight: 500;
+    border: 1px solid #e5e2da;
+    transition: 0.3s ease;
+}
+
+#template_links a:hover {
+    background: #9c7b3b;
+    color: white;
+}
+
+#template_links a:active {
+    background: linear-gradient(90deg,#9c7b3b, #b4914c);
+    color: white;
+    box-shadow: 0 4px 14px rgba(156, 123, 59, 0.35);
+}
+
+
+    span#portrait_warning_icon {
+        font-size: large;
+    }
+
+ section#main {
+    width: 92%;
+    max-width: 1000px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 22px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #faf8f2;
+    color: #9c7b3b;
+    font-weight: 600;
+}
+
+
+td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #f4f1ea;
+}
+
+input[type="text"] {
+    width: 95%;
+    padding: 6px 4px;
+    border: none;
+    border-bottom: 1px solid #e0ddd6;
+    background: transparent;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-bottom: 1px solid #9c7b3b;
+}
+
+button {
+    background: transparent;
+    color: #9c7b3b;
+    border: 1px solid #e5e2da;
+}
+
+button:hover {
+    background: #f3efe6;
+}
+    
+
+    a {
+        padding: 10px;
+    }
+
+#searchInput {
+    width: 320px;
+    padding: 12px 18px;
+    border-radius: 40px;   /* more pill shape */
+    border: 1px solid #e5e2da;
+    background: #faf9f6;
+    outline: none;
+    transition: 0.3s ease;
+    font-size: 14px;
+}
+
+#searchInput:focus {
+    background: white;
+    border-color: #9c7b3b;
+    box-shadow: 0 0 10px rgba(156, 123, 59, 0.25);
+}
+
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 10px 18px;
+    border-radius: 20px;
+}
+
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.table-container {
+    max-height: 500px;
+    overflow-y: auto;
+    border-radius: 16px;
+}
+tbody tr:nth-child(even) {
+    background-color: #fdfcf9;
+}
+
+tbody tr {
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #9c7b3b;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+    background: #9c7b3b;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+}
