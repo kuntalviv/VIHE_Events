@@ -252,15 +252,30 @@ function addRow(item = { item_name: "", item_count: "" }) {
 
     const row = document.createElement("tr");
 
-    row.innerHTML = `
-        <td><input type="text" value="${item.item_name}"></td>
-        <td><input type="text" value="${item.item_count}"></td>
-        <td><input type="checkbox" onchange="updateRowStatus(this)"></td>
-        <td><input type="checkbox" onchange="updateRowStatus(this)"></td>
-        <td>
-            <button onclick="deleteRow(this)">Delete</button>
-        </td>
-    `;
+   row.innerHTML = `
+    <td><input type="text" value="${item.item_name}"></td>
+    <td><input type="text" value="${item.item_count}"></td>
+
+    <td>
+        <label>
+            <input type="radio" name="status-${Date.now()}" value="none" checked onchange="updateRowStatus(this)">
+            None
+        </label>
+        <label>
+            <input type="radio" name="status-${Date.now()}" value="taken" onchange="updateRowStatus(this)">
+            Taken
+        </label>
+        <label>
+            <input type="radio" name="status-${Date.now()}" value="returned" onchange="updateRowStatus(this)">
+            Returned
+        </label>
+    </td>
+
+    <td>
+        <button onclick="addRow()">+</button>
+        <button onclick="deleteRow(this)">Delete</button>
+    </td>
+`;
 
     tbody.appendChild(row);
 }
@@ -283,21 +298,21 @@ function filterTable() {
         row.style.display = combined.includes(filter) ? "" : "none";
     });
 }
-function updateRowStatus(checkbox) {
-    const row = checkbox.closest("tr");
-    const taken = row.cells[2].querySelector("input").checked;
-    const returned = row.cells[3].querySelector("input").checked;
+function updateRowStatus(input) {
+    const row = input.closest("tr");
+    const status = input.value;
 
-    if (returned) {
-        row.style.backgroundColor = "#d4edda"; // light green
+    if (status === "returned") {
+        row.style.backgroundColor = "#d4edda";
     } 
-    else if (taken) {
-        row.style.backgroundColor = "#f8d7da"; // light red
+    else if (status === "taken") {
+        row.style.backgroundColor = "#f8d7da";
     } 
     else {
         row.style.backgroundColor = "";
     }
 }
+
 
 document.getElementById("auditoriumLink")
     .addEventListener("click", function (e) {
