@@ -179,27 +179,7 @@ tbody tr {
 }
 
 input[type="checkbox"] {
-    appearance: none;
     width: 18px;
     height: 18px;
-    border: 2px solid #9c7b3b;
-    border-radius: 50%;
-    cursor: pointer;
-    position: relative;
-    transition: 0.2s ease;
-}
-
-input[type="checkbox"]:checked {
-    background: #9c7b3b;
-}
-
-input[type="checkbox"]:checked::after {
-    content: "";
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: white;
-    border-radius: 50%;
-    top: 4px;
-    left: 4px;
+    cursor: pointer;;
 }

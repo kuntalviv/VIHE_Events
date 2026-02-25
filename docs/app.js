@@ -252,28 +252,21 @@ function addRow(item = { item_name: "", item_count: "" }) {
 
     const row = document.createElement("tr");
 
-   row.innerHTML = `
+ row.innerHTML = `
     <td><input type="text" value="${item.item_name}"></td>
     <td><input type="text" value="${item.item_count}"></td>
 
     <td>
-        <label>
-            <input type="radio" name="status-${Date.now()}" value="none" checked onchange="updateRowStatus(this)">
-            None
-        </label>
-        <label>
-            <input type="radio" name="status-${Date.now()}" value="taken" onchange="updateRowStatus(this)">
-            Taken
-        </label>
-        <label>
-            <input type="radio" name="status-${Date.now()}" value="returned" onchange="updateRowStatus(this)">
-            Returned
-        </label>
+        <input type="checkbox" value="taken" onchange="updateRowStatus(this)">
+    </td>
+
+    <td>
+        <input type="checkbox" value="returned" onchange="updateRowStatus(this)">
     </td>
 
     <td>
         <button onclick="addRow()">+</button>
-        <button onclick="deleteRow(this)">Delete</button>
+        <button onclick="deleteRow(this)">−</button>
     </td>
 `;
 
@@ -298,17 +291,25 @@ function filterTable() {
         row.style.display = combined.includes(filter) ? "" : "none";
     });
 }
-function updateRowStatus(input) {
-    const row = input.closest("tr");
-    const status = input.value;
+function updateRowStatus(checkbox) {
+    const row = checkbox.closest("tr");
 
-    if (status === "returned") {
+    const takenBox = row.cells[2].querySelector("input");
+    const returnedBox = row.cells[3].querySelector("input");
+
+    if (checkbox === takenBox && takenBox.checked) {
+        returnedBox.checked = false;
+    }
+
+    if (checkbox === returnedBox && checkbox.checked) {
+        takenBox.checked = false;
+    }
+
+    if (returnedBox.checked) {
         row.style.backgroundColor = "#d4edda";
-    } 
-    else if (status === "taken") {
+    } else if (takenBox.checked) {
         row.style.backgroundColor = "#f8d7da";
-    } 
-    else {
+    } else {
         row.style.backgroundColor = "";
     }
 }
