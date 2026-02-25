@@ -178,8 +178,30 @@ tbody tr {
     }
 }
 
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th:nth-child(3),
+th:nth-child(4),
+th:nth-child(5),
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5) {
+    text-align: center;
+}
+
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5) {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;;
+    display: block;
+    margin: 0 auto;
 }
